@@ -1,0 +1,3 @@
+graft pokedex/static
+graft pokedex/templates
+global-exclude *.pyc
