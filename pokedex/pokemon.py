@@ -3,12 +3,12 @@ from flask import (
 )
 import requests
 
-bp = Blueprint('pokemon', __name__, url_prefix='/pokemon')
+POKE_API = 'https://pokeapi.co/api/v2'
 
-@bp.route('/')
-def get_first_pokemon():
-    pass
+bp = Blueprint('pokemon', __name__, url_prefix='/pokemon')
 
 @bp.route('/<int:id>')
 def get_pokemon(id):
-    pass
+    resp = requests.get(f'{POKE_API}/pokemon/{id}/')
+    data = resp.json()
+    return render_template('pokemon/index.html', pokemon=data)

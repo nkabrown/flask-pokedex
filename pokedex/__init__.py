@@ -15,7 +15,7 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, world!'
 
-    import . from pokemon
+    from . import pokemon
     app.register_blueprint(pokemon.bp)
 
     return app
